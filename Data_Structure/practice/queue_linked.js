@@ -5,7 +5,7 @@ class Node {
     }
 }
 
-class Stack {
+class Queue {
     constructor() {
         this.first = null;
         this.last = null;
@@ -19,36 +19,36 @@ class Stack {
     push(value) {
         const newNode = new Node(value);
         if (this.length === 0) {
-            this.first = newNode
-            this.last = newNode
-        } else {
-            this.last.next = newNode
+            this.first = newNode;
             this.last = newNode;
+        } else {
+            this.last.next = newNode;
+            this.last = newNode
         }
         this.length++;
         return this;
     }
 
     pop() {
-        if (!this.first) {
-            return null;
+        if (this.length === 0) {
+            return undefined;
         }
         if (this.first === this.last) {
-            this.last = null;
+            this.last = null
         }
-        const holdPointer = this.first;
         this.first = this.first.next;
         this.length--;
         return this;
     }
 }
 
-
-const myStack = new Stack();
-myStack.push("google")
-myStack.push("udemy")
-myStack.push("discord")
-    // myStack.pop()
-    // myStack.pop()
-    // myStack.pop()
-console.log(myStack)
+const queues = new Queue;
+queues.push(10)
+queues.push(20)
+queues.push(30)
+queues.push(40)
+queues.pop();
+queues.pop();
+queues.pop();
+queues.pop();
+console.log(queues);

@@ -43,17 +43,17 @@ class LinkedList {
 
     insert(value, index) {
         const newNode = new Node(value);
-        let leader = this.traverseToIndex(index - 1);
-        let holdPointer = leader.next;
+        const leader = this.traverseToIndex(index - 1);
+        const holdPointer = leader.next;
         leader.next = newNode;
         newNode.next = holdPointer;
         this.length++;
-        return this;
+        return this
     }
 
     traverseToIndex(index) {
+        let currentNode = this.head
         let counter = 0;
-        let currentNode = this.head;
         while (counter !== index) {
             currentNode = currentNode.next;
             counter++
@@ -62,9 +62,9 @@ class LinkedList {
     }
 
     remove(index) {
-        let leader = this.traverseToIndex(index - 1);
-        let unwantedNode = leader.next;
-        leader.next = unwantedNode.next;
+        let ladder = this.traverseToIndex(index - 1);
+        let unwantedNode = ladder.next;
+        ladder.next = unwantedNode.next;
         this.length--;
         return this;
     }
@@ -90,7 +90,7 @@ const linkedList = new LinkedList("Google");
 linkedList.append("Discord");
 linkedList.prepend("Twiiter")
 linkedList.prepend("Facebook")
-linkedList.insert("Instagram", 1)
-linkedList.remove(3)
+linkedList.insert("Instagram", 3)
+    // linkedList.remove(2)
 console.log(linkedList.printList());
 console.log(linkedList.reverse().printList());
